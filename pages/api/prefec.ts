@@ -24,7 +24,9 @@ export default async(req, res) => {
   
   const address = await Address.findOne({
     where: {
-     prefectures: req.query['post'],
+     prefectures: req.query['prefectures'],
+     municipalities: req.query['municipalities'],
+     address: req.query['address']
     }
   });
 console.log(address)

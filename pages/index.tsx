@@ -10,16 +10,18 @@ const Home = (props: Props) => {
   
   React.useEffect(()=>{
     console.log(post)
-    fetch('/api/prefec?post='+[prefectures, municipalities, address, post])
+  fetch('/api/prefec?prefectures='+ prefectures+ '&municipalities=' + municipalities+'&address=' + address)
     .then(response => response.json())
+    
     .then(data => {
-    if(data !== null){ 
-      setPrefectures(data.prefectures)
-      setMunicipalities(data.municipalities)
-      setAddress(data.address)
-      setPost(data.post)
-    }});
-  },[post, prefectures, municipalities, address])
+      if(data !== null){ 
+        setPrefectures(data.prefectures)
+        setMunicipalities(data.municipalities)
+        setAddress(data.address)
+        setPost(data.post)
+      }
+    });
+  },[prefectures, municipalities, address])
 
   return (
     <div>
