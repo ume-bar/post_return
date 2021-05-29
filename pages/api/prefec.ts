@@ -21,7 +21,6 @@ Address.init({
 export default async(req, res) => {
   await sequelize.sync();
   console.log(await Address.count());
-  
   const address = await Address.findOne({
     where: {
      prefectures: req.query['prefectures'],
@@ -29,6 +28,6 @@ export default async(req, res) => {
      address: req.query['address']
     }
   });
-console.log(address)
+  console.log(address)
   res.status(200).send(JSON.stringify(address))
 }
